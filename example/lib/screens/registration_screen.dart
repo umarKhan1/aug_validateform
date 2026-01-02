@@ -66,90 +66,78 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                           ),
                           const SizedBox(height: 32),
 
-                          // Birthday
-                          Column(
+                          // Birthday Header
+                          const Align(
+                            alignment: Alignment.centerLeft,
+                            child: Text(
+                              "Birthday",
+                              style: TextStyle(fontWeight: FontWeight.bold),
+                            ),
+                          ),
+                          const SizedBox(height: 12),
+                          Row(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
-                              const Text(
-                                "Birthday",
-                                style: TextStyle(fontWeight: FontWeight.bold),
+                              Expanded(
+                                child: ValidationWatcher(
+                                  notifier: _form.validationNotifier,
+                                  fieldName: 'day',
+                                  builder: (context, error) => CustomDropdown(
+                                    label: "Day",
+                                    hint: "DD",
+                                    items: List.generate(31, (i) => "${i + 1}"),
+                                    onChanged: (v) => _form.day = v ?? "",
+                                    value: _form.day.isEmpty ? null : _form.day,
+                                    errorText: error,
+                                  ),
+                                ),
                               ),
-                              const SizedBox(height: 8),
-                              Row(
-                                children: [
-                                  Expanded(
-                                    child: ValidationWatcher(
-                                      notifier: _form.validationNotifier,
-                                      fieldName: 'day',
-                                      builder: (context, error) =>
-                                          CustomDropdown(
-                                        label: "",
-                                        hint: "Day",
-                                        items: List.generate(
-                                          31,
-                                          (i) => "${i + 1}",
-                                        ),
-                                        onChanged: (v) => _form.day = v ?? "",
-                                        value: _form.day.isEmpty
-                                            ? null
-                                            : _form.day,
-                                        errorText: error,
-                                      ),
-                                    ),
+                              const SizedBox(width: 12),
+                              Expanded(
+                                child: ValidationWatcher(
+                                  notifier: _form.validationNotifier,
+                                  fieldName: 'month',
+                                  builder: (context, error) => CustomDropdown(
+                                    label: "Month",
+                                    hint: "MM",
+                                    items: [
+                                      "Jan",
+                                      "Feb",
+                                      "Mar",
+                                      "Apr",
+                                      "May",
+                                      "Jun",
+                                      "Jul",
+                                      "Aug",
+                                      "Sep",
+                                      "Oct",
+                                      "Nov",
+                                      "Dec"
+                                    ],
+                                    onChanged: (v) => _form.month = v ?? "",
+                                    value: _form.month.isEmpty
+                                        ? null
+                                        : _form.month,
+                                    errorText: error,
                                   ),
-                                  const SizedBox(width: 8),
-                                  Expanded(
-                                    child: ValidationWatcher(
-                                      notifier: _form.validationNotifier,
-                                      fieldName: 'month',
-                                      builder: (context, error) =>
-                                          CustomDropdown(
-                                        label: "",
-                                        hint: "Month",
-                                        items: [
-                                          "Jan",
-                                          "Feb",
-                                          "Mar",
-                                          "Apr",
-                                          "May",
-                                          "Jun",
-                                          "Jul",
-                                          "Aug",
-                                          "Sep",
-                                          "Oct",
-                                          "Nov",
-                                          "Dec",
-                                        ],
-                                        onChanged: (v) => _form.month = v ?? "",
-                                        value: _form.month.isEmpty
-                                            ? null
-                                            : _form.month,
-                                        errorText: error,
-                                      ),
-                                    ),
+                                ),
+                              ),
+                              const SizedBox(width: 12),
+                              Expanded(
+                                child: ValidationWatcher(
+                                  notifier: _form.validationNotifier,
+                                  fieldName: 'year',
+                                  builder: (context, error) => CustomDropdown(
+                                    label: "Year",
+                                    hint: "YYYY",
+                                    items:
+                                        List.generate(50, (i) => "${2026 - i}"),
+                                    onChanged: (v) => _form.year = v ?? "",
+                                    value:
+                                        _form.year.isEmpty ? null : _form.year,
+                                    errorText: error,
                                   ),
-                                  const SizedBox(width: 8),
-                                  Expanded(
-                                    child: ValidationWatcher(
-                                      notifier: _form.validationNotifier,
-                                      fieldName: 'year',
-                                      builder: (context, error) =>
-                                          CustomDropdown(
-                                        label: "",
-                                        hint: "Year",
-                                        items: List.generate(
-                                          50,
-                                          (i) => "${2026 - i}",
-                                        ),
-                                        onChanged: (v) => _form.year = v ?? "",
-                                        value: _form.year.isEmpty
-                                            ? null
-                                            : _form.year,
-                                        errorText: error,
-                                      ),
-                                    ),
-                                  ),
-                                ],
+                                ),
                               ),
                             ],
                           ),
@@ -164,7 +152,8 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                               placeholder: "••••••••••••",
                               onChanged: (v) => _form.password = v,
                               isPassword: true,
-                              suffix: const Icon(Icons.lock_outline, size: 20),
+                              suffix: const Icon(Icons.visibility_off_outlined,
+                                  color: Colors.grey, size: 20),
                               errorText: error,
                             ),
                           ),
@@ -178,28 +167,8 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                               label: "Phone Number",
                               placeholder: "1234 5678 9101",
                               onChanged: (v) => _form.phoneNumber = v,
-                              prefix: Container(
-                                width: 80,
-                                padding: const EdgeInsets.only(left: 12),
-                                child: Row(
-                                  children: [
-                                    const Icon(
-                                      Icons.flag,
-                                      color: Colors.blue,
-                                      size: 20,
-                                    ),
-                                    const SizedBox(width: 4),
-                                    Text(
-                                      "123",
-                                      style: TextStyle(color: Colors.grey[600]),
-                                    ),
-                                    const Icon(
-                                      Icons.keyboard_arrow_down,
-                                      size: 16,
-                                    ),
-                                  ],
-                                ),
-                              ),
+                              prefix: const Icon(Icons.phone_outlined,
+                                  color: Colors.grey, size: 20),
                               errorText: error,
                             ),
                           ),
@@ -215,7 +184,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                               items: [
                                 "What is your pet's name?",
                                 "Your first school?",
-                                "City of birth?",
+                                "City of birth?"
                               ],
                               onChanged: (v) =>
                                   _form.securityQuestion = v ?? "",
@@ -230,8 +199,8 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                             notifier: _form.validationNotifier,
                             fieldName: 'securityAnswer',
                             builder: (context, error) => CustomInputField(
-                              label: "",
-                              placeholder: "Your Answer...",
+                              label: "Your Answer",
+                              placeholder: "Type your answer...",
                               onChanged: (v) => _form.securityAnswer = v,
                               errorText: error,
                             ),

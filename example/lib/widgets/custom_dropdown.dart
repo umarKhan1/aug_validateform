@@ -45,6 +45,7 @@ class CustomDropdown extends StatelessWidget {
           child: DropdownButtonHideUnderline(
             child: DropdownButton<String>(
               isExpanded: true,
+              icon: const Icon(Icons.keyboard_arrow_down, color: Colors.grey),
               value: items.contains(value) ? value : null,
               hint: Text(hint),
               items: items.map((String item) {

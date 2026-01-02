@@ -1,5 +1,5 @@
 import 'package:flutter_test/flutter_test.dart';
-import 'package:example/user_form.dart';
+import 'package:example/models/user_form.dart';
 
 void main() {
   group('UserForm Validation', () {
@@ -12,40 +12,43 @@ void main() {
     test('Initial form should be invalid (empty fields)', () {
       final isValid = form.validate();
       expect(isValid, isFalse);
-      expect(form.errors['email'], isNotNull);
+      expect(form.errors['day'], isNotNull);
       expect(form.errors['password'], isNotNull);
+      expect(form.errors['phoneNumber'], isNotNull);
     });
 
     test('Valid form should pass', () {
-      form.email = "test@example.com";
-      form.phone = "1234567890";
-      form.password = "StrongPass123!";
-      form.confirmPassword = "StrongPass123!";
+      form.day = "1";
+      form.month = "Jan";
+      form.year = "2026";
+      form.password = "StrongPass1";
+      form.phoneNumber = "1234567890";
+      form.securityQuestion = "What is your pet's name?";
+      form.securityAnswer = "Fluffy";
 
       final isValid = form.validate();
       expect(isValid, isTrue);
       expect(form.errors, isEmpty);
     });
 
-    test('Email format validation should work', () {
-      form.email = "invalid-email";
+    test('Phone format validation should work', () {
+      form.phoneNumber = "abc";
       form.validate();
-      expect(form.errors['email'], equals("Invalid email address"));
+      expect(form.errors['phoneNumber'], equals("Enter a valid phone number"));
     });
 
     test('Security validation should work', () {
       form.password = "123";
       form.validate();
       expect(form.errors['password'], isNotNull);
-      // UpperCase check is before MinLength
+      // UpperCase check is before MinLength in current implementation logic
       expect(form.errors['password'], contains("uppercase"));
     });
 
-    test('Password match validation should work', () {
-      form.password = "StrongPass123!";
-      form.confirmPassword = "DifferentPass123!";
+    test('Empty fields should report required errors', () {
+      form.day = "";
       form.validate();
-      expect(form.errors['confirmPassword'], equals("Passwords do not match"));
+      expect(form.errors['day'], equals("Day is required"));
     });
 
     test('ValueNotifier should update on validate', () {
