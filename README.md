@@ -20,17 +20,15 @@ In modern Flutter development, complex forms often lead to a "Maintenance Nightm
 | **Performance** | Runtime reflection or heavy wrappers | Native Augmentation injection (Wasm-Ready) |
 
 ---
-
-### Reactive Validation in Action
-![Reactive Validation Demo](packages/examplegif.gif)
-
----
-
 ## Architectural Transparency
 
 How does it work? Unlike legacy generators that rely on messy mixins or slow reflection, `aug_validateform` uses the Dart Augmentation Library standard.
 
 When you run `build_runner`, the engine doesn't just create a separate file; it "augments" your existing class. By using the `augment class` keyword, I inject the `validationNotifier` and `validate()` methods directly into your model. This approach is 100% Wasm-compatible and preserves a clean class hierarchy—no `with _$Mixin` required.
+
+---
+### Reactive Validation in Action
+![Reactive Validation Demo](packages/examplegif.gif)
 
 ---
 
