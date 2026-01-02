@@ -12,7 +12,7 @@ providing reactive `ValueNotifier` feedback with zero reflective overhead.
 ---
 
 ### 🛠 Reactive Validation in Action
-![Reactive Validation Demo](examplegif.gif)
+![Reactive Validation Demo](../examplegif.gif)
 
 ---
 
