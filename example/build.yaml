@@ -1,0 +1,4 @@
+global_options:
+  "build_resolvers":
+    options:
+      enable_experiment: ["macros", "augmentations"]

@@ -1,0 +1,7 @@
+builders:
+  aug_validateform_builder:
+    import: "package:aug_validateform_generator/aug_validateform_generator.dart"
+    builder_factories: ["augValidateFormBuilder"]
+    build_extensions: { ".dart": [".validate.dart"] }
+    auto_apply: dependents
+    build_to: source
