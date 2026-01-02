@@ -2,7 +2,7 @@
 
 The powerful code generation engine behind `aug_validateform`.
 
-This package is a developer-tooling companion for the `aug_validateform` system. I utilize `build_runner` and `source_gen` to parse validation annotations and produce high-performance, reactive validation mixins.
+This package is a developer-tooling companion for the `aug_validateform` system. I utilize `build_runner` and `source_gen` to parse validation annotations and produce high-performance, reactive validation augmentations.
 
 ---
 

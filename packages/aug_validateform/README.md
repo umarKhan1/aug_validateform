@@ -4,12 +4,7 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 [![Build Status](https://img.shields.io/github/actions/workflow/status/umarKhan1/aug_validateform/ci.yml?branch=main)](https://github.com/umarKhan1/aug_validateform/actions)
 
-`aug_validateform` is a zero-boilerplate, type-safe validation engine that weaves logic directly into your models using the stable Mixin pattern. Unlike traditional form builders, it preserves your pure data models while providing reactive `ValueNotifier` feedback with zero reflective overhead.
-
----
-
-### Reactive Validation in Action
-![Reactive Validation Demo](../examplegif.gif)
+`aug_validateform` is a zero-boilerplate, type-safe validation engine that weaves logic directly into your models using the stable Augmentation pattern. Unlike traditional form builders, it preserves your pure data models while providing reactive `ValueNotifier` feedback with zero reflective overhead.
 
 ---
 
@@ -22,15 +17,20 @@ In modern Flutter development, complex forms often lead to a "Maintenance Nightm
 | **Type Safety** | String-keyed maps or dynamic fields | Fully type-safe model signatures |
 | **State Management** | Manual `setState` or controller hacks | Auto-generated `ValueNotifier` state |
 | **Boilerplate** | 50+ lines of validator logic in UI | High-density field annotations |
-| **Performance** | Runtime reflection or heavy wrappers | Native Mixin injection (Wasm-Ready) |
+| **Performance** | Runtime reflection or heavy wrappers | Native Augmentation injection (Wasm-Ready) |
+
+---
+
+### Reactive Validation in Action
+![Reactive Validation Demo](../examplegif.gif)
 
 ---
 
 ## Architectural Transparency
 
-How does it work? Instead of wrapping your objects or using slow reflection, `aug_validateform` uses Dart's `part`/`part of` mechanism combined with Code Generation. 
+How does it work? Unlike legacy generators that rely on messy mixins or slow reflection, `aug_validateform` uses the Dart Augmentation Library standard.
 
-When you run `build_runner`, I "weave" a generated validation mixin directly into your data class. This creates a tight, Impeller-ready validation loop. Because it avoids reflection entirely, it's 100% Wasm-compatible, making it the highest-performing validation suite for Flutter Web.
+When you run `build_runner`, the engine doesn't just create a separate file; it "augments" your existing class. By using the `augment class` keyword, I inject the `validationNotifier` and `validate()` methods directly into your model. This approach is 100% Wasm-compatible and preserves a clean class hierarchy—no `with _$Mixin` required.
 
 ---
 
@@ -49,16 +49,16 @@ dev_dependencies:
 ```
 
 ### Step 2: Define Your Validation Model
-Annotate your class and "weave" the validation logic in using a mixin.
+Annotate your class and let the engine augment it with validation powers.
 
 ```dart
 import 'package:aug_validateform/aug_validateform.dart';
 import 'package:flutter/foundation.dart';
 
-part 'user_form.validate.dart';
+import 'user_form.validate.dart'; // Source generation handles the rest
 
 @Validatable()
-class UserForm with _$UserFormValidation {
+class UserForm {
   @Required(message: "Email is required")
   @Email()
   String email = "";
