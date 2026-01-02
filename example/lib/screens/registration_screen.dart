@@ -89,7 +89,8 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                                     label: "Day",
                                     hint: "DD",
                                     items: List.generate(31, (i) => "${i + 1}"),
-                                    onChanged: (v) => _form.day = v ?? "",
+                                    onChanged: (v) =>
+                                        setState(() => _form.day = v ?? ""),
                                     value: _form.day.isEmpty ? null : _form.day,
                                     errorText: error,
                                   ),
@@ -118,7 +119,8 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                                       "Nov",
                                       "Dec"
                                     ],
-                                    onChanged: (v) => _form.month = v ?? "",
+                                    onChanged: (v) =>
+                                        setState(() => _form.month = v ?? ""),
                                     value: _form.month.isEmpty
                                         ? null
                                         : _form.month,
@@ -137,7 +139,8 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                                     hint: "YYYY",
                                     items:
                                         List.generate(50, (i) => "${2026 - i}"),
-                                    onChanged: (v) => _form.year = v ?? "",
+                                    onChanged: (v) =>
+                                        setState(() => _form.year = v ?? ""),
                                     value:
                                         _form.year.isEmpty ? null : _form.year,
                                     errorText: error,
@@ -155,7 +158,8 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                             builder: (context, error) => CustomInputField(
                               label: "Password",
                               placeholder: "••••••••••••",
-                              onChanged: (v) => _form.password = v,
+                              onChanged: (v) =>
+                                  setState(() => _form.password = v),
                               isPassword: true,
                               suffix: const Icon(Icons.lock,
                                   color: Colors.grey, size: 20),
@@ -171,7 +175,8 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                             builder: (context, error) => CustomInputField(
                               label: "Phone Number",
                               placeholder: "1234 5678 9101",
-                              onChanged: (v) => _form.phoneNumber = v,
+                              onChanged: (v) =>
+                                  setState(() => _form.phoneNumber = v),
                               prefix: const Icon(Icons.phone,
                                   color: Colors.grey, size: 20),
                               errorText: error,
@@ -191,8 +196,8 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                                 "Your first school?",
                                 "City of birth?"
                               ],
-                              onChanged: (v) =>
-                                  _form.securityQuestion = v ?? "",
+                              onChanged: (v) => setState(
+                                  () => _form.securityQuestion = v ?? ""),
                               value: _form.securityQuestion.isEmpty
                                   ? null
                                   : _form.securityQuestion,
@@ -206,7 +211,8 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                             builder: (context, error) => CustomInputField(
                               label: "Your Answer",
                               placeholder: "Type your answer...",
-                              onChanged: (v) => _form.securityAnswer = v,
+                              onChanged: (v) =>
+                                  setState(() => _form.securityAnswer = v),
                               errorText: error,
                             ),
                           ),

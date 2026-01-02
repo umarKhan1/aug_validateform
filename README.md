@@ -11,10 +11,8 @@ providing reactive `ValueNotifier` feedback with zero reflective overhead.
 
 ---
 
-### 🛠 Reactive Validation in Action (GIF Placeholder)
-> [!NOTE]
-> *Insert GIF showing real-time error messages appearing as the user types,
-> powered by the `ValidationWatcher` and automated model validation.*
+### 🛠 Reactive Validation in Action
+![Reactive Validation Demo](packages/aug_validateform/examplegif.gif)
 
 ---
 
