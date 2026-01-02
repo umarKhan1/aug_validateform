@@ -50,7 +50,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                         mainAxisSize: MainAxisSize.min,
                         children: [
                           const Text(
-                            "Secure Account",
+                            "aug_validateform",
                             style: TextStyle(
                               fontSize: 28,
                               fontWeight: FontWeight.bold,
@@ -58,20 +58,21 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                           ),
                           const SizedBox(height: 8),
                           Text(
-                            "Lorem ipsum dolor sit amet, consectetuer adipiscing sed diam nonummy nibh euismod tincidunt.",
+                            "Next-generation reactive validation engine for Flutter. Zero boilerplate, maximum performance.",
                             textAlign: TextAlign.center,
                             style: TextStyle(
                               color: Colors.grey[600],
-                              fontSize: 12,
+                              fontSize: 13,
+                              height: 1.4,
                             ),
                           ),
                           const SizedBox(height: 32),
 
-                          // Birthday Header
+                          // Date of Birth Header
                           const Align(
                             alignment: Alignment.centerLeft,
                             child: Text(
-                              "Birthday",
+                              "Date of Birth",
                               style: TextStyle(fontWeight: FontWeight.bold),
                             ),
                           ),
@@ -80,6 +81,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Expanded(
+                                flex: 2,
                                 child: ValidationWatcher(
                                   notifier: _form.validationNotifier,
                                   fieldName: 'day',
@@ -93,8 +95,9 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                                   ),
                                 ),
                               ),
-                              const SizedBox(width: 12),
+                              const SizedBox(width: 10),
                               Expanded(
+                                flex: 2,
                                 child: ValidationWatcher(
                                   notifier: _form.validationNotifier,
                                   fieldName: 'month',
@@ -123,8 +126,9 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                                   ),
                                 ),
                               ),
-                              const SizedBox(width: 12),
+                              const SizedBox(width: 10),
                               Expanded(
+                                flex: 3,
                                 child: ValidationWatcher(
                                   notifier: _form.validationNotifier,
                                   fieldName: 'year',
