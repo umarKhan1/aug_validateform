@@ -2,7 +2,7 @@
 
 The powerful code generation engine behind `aug_validateform`.
 
-This package is a developer-tooling companion for the `aug_validateform` system. It utilizes `build_runner` and `source_gen` to parse validation annotations and produce high-performance, reactive validation mixins.
+This package is a developer-tooling companion for the `aug_validateform` system. I utilize `build_runner` and `source_gen` to parse validation annotations and produce high-performance, reactive validation mixins.
 
 ---
 
@@ -19,7 +19,7 @@ Add this as a `dev_dependency` in your Flutter project:
 ```yaml
 dev_dependencies:
   aug_validateform_generator: latest_version
-  build_runner: ^1.0.0
+  build_runner: ^2.4.0
 ```
 
 For full implementation and usage instructions, please refer to the primary [aug_validateform](https://pub.dev/packages/aug_validateform) documentation.

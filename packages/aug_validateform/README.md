@@ -4,47 +4,37 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 [![Build Status](https://img.shields.io/github/actions/workflow/status/umarKhan1/aug_validateform/ci.yml?branch=main)](https://github.com/umarKhan1/aug_validateform/actions)
 
-`aug_validateform` is a zero-boilerplate, type-safe validation engine that 
-weaves logic directly into your models using the 2026 stable Mixin pattern. 
-Unlike traditional form builders, it preserves your pure data models while 
-providing reactive `ValueNotifier` feedback with zero reflective overhead.
+`aug_validateform` is a zero-boilerplate, type-safe validation engine that weaves logic directly into your models using the stable Mixin pattern. Unlike traditional form builders, it preserves your pure data models while providing reactive `ValueNotifier` feedback with zero reflective overhead.
 
 ---
 
-### 🛠 Reactive Validation in Action
+### Reactive Validation in Action
 ![Reactive Validation Demo](../examplegif.gif)
 
 ---
 
-## 🚀 The Problem & The 2026 Solution
+## The Problem & The Solution
 
-In modern Flutter development, complex forms often lead to a "Maintenance 
-Nightmare." `aug_validateform` solves this by moving logic out of the UI 
-and into a generated, high-performance validation layer.
+In modern Flutter development, complex forms often lead to a "Maintenance Nightmare." `aug_validateform` solves this by moving logic out of the UI and into a generated, high-performance validation layer.
 
-| Feature | The "Legacy" Reality | The `aug_validateform` Way |
+| Feature | The Legacy Reality | The `aug_validateform` Way |
 | :--- | :--- | :--- |
 | **Type Safety** | String-keyed maps or dynamic fields | Fully type-safe model signatures |
 | **State Management** | Manual `setState` or controller hacks | Auto-generated `ValueNotifier` state |
 | **Boilerplate** | 50+ lines of validator logic in UI | High-density field annotations |
-| **Performance** | Runtime reflection or heavy wrappers | Native Mixin "injection" (Wasm-Ready) |
+| **Performance** | Runtime reflection or heavy wrappers | Native Mixin injection (Wasm-Ready) |
 
 ---
 
-## 🛠 Architectural Transparency
+## Architectural Transparency
 
-How does it work? Instead of wrapping your objects or using slow reflection, 
-`aug_validateform` uses Dart's `part`/`part of` mechanism combined with 
-Code Generation. 
+How does it work? Instead of wrapping your objects or using slow reflection, `aug_validateform` uses Dart's `part`/`part of` mechanism combined with Code Generation. 
 
-When you run `build_runner`, we "weave" a generated validation mixin directly 
-into your data class. This creates a tight, **Impeller-ready** validation loop.
-Because it avoids reflection entirely, it's 100% **Wasm-compatible**, making 
-it the highest-performing validation suite for Flutter Web in 2026.
+When you run `build_runner`, I "weave" a generated validation mixin directly into your data class. This creates a tight, Impeller-ready validation loop. Because it avoids reflection entirely, it's 100% Wasm-compatible, making it the highest-performing validation suite for Flutter Web.
 
 ---
 
-## 🚀 Quick Start
+## Quick Start
 
 ### Step 1: `pubspec.yaml` Setup
 Add the core and the generator to your project:
@@ -111,9 +101,9 @@ ValidationWatcher(
 
 ---
 
-## 🛠 Validator Reference
+## Validator Reference
 
-Our validator suite is built for the security and format requirements of 2026.
+The validator suite is built for modern security and format requirements.
 
 | Annotation | Description | Parameters |
 | :--- | :--- | :--- |
@@ -132,18 +122,18 @@ Our validator suite is built for the security and format requirements of 2026.
 
 ---
 
-## 🤝 Community & Contributing
+## Community & Contributing
 
-We welcome contributions! If you find a bug or have a feature request, please 
-open an issue on our [GitHub repository](https://github.com/umarKhan1/aug_validateform).
+I welcome contributions! If you find a bug or have a feature request, please open an issue on the [GitHub repository](https://github.com/umarKhan1/aug_validateform).
 
 ### Meet the Author
+
 Developed and maintained by **Muhammad Omar**.
 - **LinkedIn**: [muhammad-omar-0335](https://www.linkedin.com/in/muhammad-omar-0335/)
 - **GitHub**: [umarKhan1](https://github.com/umarKhan1)
 
 ---
 
-## 📜 License
+## License
 
 This project is licensed under the MIT License - see the `LICENSE` file for details.
