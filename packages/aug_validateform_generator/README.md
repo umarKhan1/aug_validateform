@@ -1,38 +1,40 @@
 # aug_validateform_generator
 
-Code generator for the `aug_validateform` package.
+The powerful code generation engine behind `aug_validateform`.
 
-`aug_validateform_generator` provides the `build_runner` logic required to generate validation mixins for classes annotated with `@Validatable()`. It processes field-level annotations to produce robust, reactive validation logic.
-
-## Purpose
-
-This package is intended to be used as a `dev_dependency` alongside `aug_validateform`. It automatically generates the `.validate.dart` part files that contain the validation logic used by your models.
-
-## Usage
-
-For complete documentation on how to use the validation system, please refer to the primary [aug_validateform](https://pub.dev/packages/aug_validateform) package.
-
-### Brief Setup
-
-1. Add to `dev_dependencies`:
-   ```yaml
-   dev_dependencies:
-     aug_validateform_generator: latest_version
-     build_runner: ^2.4.0
-   ```
-
-2. Run the builder:
-   ```bash
-   dart run build_runner build --delete-conflicting-outputs
-   ```
-
-## Generated Logic
-
-The generator creates a mixin named `_$ClassNameValidation` which includes:
-- A reactive `ValueNotifier` for error state.
-- A `errors` map getter for current validation messages.
-- A `validate()` method that evaluates all field rules.
+This package is a developer-tooling companion for the `aug_validateform` system. It utilizes `build_runner` and `source_gen` to parse validation annotations and produce high-performance, reactive validation mixins.
 
 ---
 
-Copyright (c) 2026.
+## Purpose
+
+`aug_validateform_generator` automates the complex logic required to handle multiple validation rules, cross-field matching, and real-time state updates. By offloading this to a generator, your source code remains clean and focused on business logic.
+
+---
+
+## Getting Started
+
+Add this as a `dev_dependency` in your Flutter project:
+
+```yaml
+dev_dependencies:
+  aug_validateform_generator: latest_version
+  build_runner: ^1.0.0
+```
+
+For full implementation and usage instructions, please refer to the primary [aug_validateform](https://pub.dev/packages/aug_validateform) documentation.
+
+---
+
+## Connect with the Author
+
+Developed and maintained by **Muhammad Omar**.
+
+- **LinkedIn**: [muhammad-omar-0335](https://www.linkedin.com/in/muhammad-omar-0335/)
+- **GitHub**: [umarKhan1](https://github.com/umarKhan1)
+
+---
+
+## License
+
+This project is licensed under the MIT License.

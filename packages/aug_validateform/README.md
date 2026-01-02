@@ -1,22 +1,24 @@
 # aug_validateform
 
-Professional, Reactive Validation for Flutter applications.
+A modern, high-performance validation engine for Flutter that eliminates boilerplate through code generation and reactive state management.
 
-`aug_validateform` provides a streamlined validation experience by leveraging code generation and mixins to inject validation logic directly into your form models. This approach eliminates the need for manual state management and repetitive validation boilerplate in your UI.
+`aug_validateform` is designed for developers who value clean architecture and developer productivity. By defining validation rules directly on your data models using annotations, the package automatically generates the underlying logic and state management required to power your forms.
 
-## Features
+---
 
-- **Boilerplate Reduction**: Definition of validation rules via annotations directly on model fields.
-- **Reactive State Management**: Integrated `ValueNotifier` provides real-time validation feedback to the UI.
-- **Extensive Validation Suite**: Comprehensive set of validators including format checks, security constraints, and cross-field matching.
-- **Mixin-based Architecture**: Ensures full IDE support and static analysis without complex class hierarchies.
-- **Customizable Error Messages**: Support for localized or custom error text for every validation rule.
+## Key Features
 
-## Getting Started
+- **Boilerplate-Free**: Validation logic is injected directly into your models via generated mixins.
+- **Reactive by Design**: Built-in `ValueNotifier` ensures your UI updates instantly as data changes.
+- **High-Performance**: Minimal overhead, leveraging Dart's native mixin capabilities for static analysis and speed.
+- **Developer-Centric**: Full IDE support, including autocomplete for generated members.
+- **Comprehensive Suite**: From simple required fields to complex cross-field password matching.
 
-### Installation
+---
 
-Add the following dependencies to your `pubspec.yaml` file:
+## Installation
+
+Add the following to your `pubspec.yaml`:
 
 ```yaml
 dependencies:
@@ -24,23 +26,25 @@ dependencies:
 
 dev_dependencies:
   aug_validateform_generator: latest_version
-  build_runner: ^2.4.0
+  build_runner: ^1.0.0
 ```
 
-## Usage
+---
 
-### 1. Define the Form Model
+## Implementation Guide
 
-Annotate your model class with `@Validatable()` and apply the validation mixin. Define your validation rules using the provided annotations.
+### 1. Define Your Form Model
+
+Annotate your class with `@Validatable()` and include the generated part file. Apply the generated mixin to your class.
 
 ```dart
 import 'package:aug_validateform/aug_validateform.dart';
 import 'package:flutter/foundation.dart';
 
-part 'registration_form.validate.dart';
+part 'user_form.validate.dart';
 
 @Validatable()
-class RegistrationForm with _$RegistrationFormValidation {
+class UserForm with _$UserFormValidation {
   @Required(message: "Email is required")
   @Email()
   String email = "";
@@ -56,65 +60,63 @@ class RegistrationForm with _$RegistrationFormValidation {
 }
 ```
 
-### 2. Generate Validation Logic
+### 2. Generate the Validation Logic
 
-Execute the following command to generate the validation mixin:
+Run the following command in your terminal to process the annotations:
 
 ```bash
 dart run build_runner build --delete-conflicting-outputs
 ```
 
-### 3. Integrate with UI
+### 3. Connect to the UI
 
-Utilize the generated `validationNotifier` and the `ValidationWatcher` widget to display errors reactively.
+Use the `ValidationWatcher` widget to observe error states on a per-field basis, preventing unnecessary global rebuilds.
 
 ```dart
-final form = RegistrationForm();
+final form = UserForm();
 
-// Reactive error display using ValidationWatcher
+// In your Widget tree:
 ValidationWatcher(
   notifier: form.validationNotifier,
   fieldName: 'email',
   builder: (context, error) => TextFormField(
     onChanged: (value) => form.email = value,
     decoration: InputDecoration(
-      labelText: 'Email Address',
+      labelText: 'Email',
       errorText: error,
     ),
   ),
 );
 
-// Triggering validation
-ElevatedButton(
-  onPressed: () {
-    if (form.validate()) {
-      // Validated successfully
-    }
-  },
-  child: const Text('Register'),
-);
+// To trigger validation (e.g., on Submit):
+bool isValid = form.validate();
 ```
 
-## Supported Annotations
+---
 
-| Annotation | Description |
-| --- | --- |
-| `@Required({String? message})` | Ensures the field is not null or an empty string. |
-| `@Email({String? message})` | Validates that the input is a correctly formatted email address. |
-| `@Phone({String? message})` | Validates standard phone number formats. |
-| `@Alphanumeric({String? message})` | Restricts input to letters and numbers only. |
-| `@UpperCase({String? message})` | Requires at least one uppercase letter. |
-| `@LowerCase({String? message})` | Requires at least one lowercase letter. |
-| `@Digit({String? message})` | Requires at least one numerical digit. |
-| `@SpecialChar({String? message})` | Requires at least one special character. |
-| `@MinLength(int length, {String? message})` | Enforces a minimum character count. |
-| `@MaxLength(int length, {String? message})` | Enforces a maximum character count. |
-| `@Match(String fieldName, {String? message})` | Ensures the field value matches another specified field. |
-| `@CombinedPhoneEmail({String? message})` | Accepts either a valid email address or a phone number. |
+## Validator Reference
 
-## Advanced Logic
+| Annotation | Purpose | Customization |
+| --- | --- | --- |
+| `@Required` | Checks for null or empty strings | `message` |
+| `@Email` | Validates standard email formats | `message` |
+| `@Phone` | Validates international phone formats | `message` |
+| `@Alphanumeric` | Ensures only letters and numbers | `message` |
+| `@UpperCase` | Requires at least one capital letter | `message` |
+| `@LowerCase` | Requires at least one small letter | `message` |
+| `@Digit` | Requires at least one numeric character | `message` |
+| `@SpecialChar` | Requires at least one symbol | `message` |
+| `@MinLength` | Enforces a minimum character count | `length`, `message` |
+| `@MaxLength` | Enforces a maximum character count | `length`, `message` |
+| `@Match` | Compares value with another field | `fieldName`, `message` |
+| `@CombinedPhoneEmail` | Logic OR between Email and Phone | `message` |
 
-Most validators are stackable, allowing you to build complex security rules on a single field by applying multiple annotations.
+---
+
+## Advanced Usage
+
+### Stacking Validators
+Validators can be stacked on a single field. They are evaluated in the order they are declared.
 
 ```dart
 @Required()
@@ -125,13 +127,27 @@ Most validators are stackable, allowing you to build complex security rules on a
 String complexPassword = "";
 ```
 
-## Publication Checklist
+### Logical Gateways
+Use `@CombinedPhoneEmail` when a field can accept multiple formats.
 
-For consistent quality on pub.dev:
-1. Ensure `pubspec.yaml` has a valid description and homepage.
-2. Verify the `example/` folder contains a complete working application.
-3. Adhere to Dart linting standards by running `dart analyze`.
+```dart
+@CombinedPhoneEmail(message: "Please enter a valid email or phone number")
+String username = "";
+```
 
 ---
 
-Copyright (c) 2026.
+## Connect with the Author
+
+Developed and maintained by **Muhammad Omar**.
+
+- **LinkedIn**: [muhammad-omar-0335](https://www.linkedin.com/in/muhammad-omar-0335/)
+- **GitHub**: [umarKhan1](https://github.com/umarKhan1)
+
+If you find this package useful, consider giving it a star on [GitHub](https://github.com/umarKhan1/aug_validateform).
+
+---
+
+## License
+
+This project is licensed under the MIT License.

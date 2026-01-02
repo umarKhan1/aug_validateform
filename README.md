@@ -1,39 +1,40 @@
-<!-- 
-This README describes the package. If you publish this package to pub.dev,
-this README's contents appear on the landing page for your package.
+# aug_validateform
 
-For information about how to write a good package README, see the guide for
-[writing package pages](https://dart.dev/tools/pub/writing-package-pages). 
+**Zero-Boilerplate, Reactive Validation Suite for Flutter**
 
-For general information about developing packages, see the Dart guide for
-[creating packages](https://dart.dev/guides/libraries/create-packages)
-and the Flutter guide for
-[developing packages and plugins](https://flutter.dev/to/develop-packages). 
--->
+Welcome to the `aug_validateform` repository. This project provides a robust, professional-grade solution for handling form validation in Flutter applications using Dart's code generation capabilities.
 
-TODO: Put a short description of the package here that helps potential users
-know whether this package might be useful for them.
+---
 
-## Features
+## Repository Structure
 
-TODO: List what your package can do. Maybe include images, gifs, or videos.
+This is a monorepo containing:
 
-## Getting started
+- **[aug_validateform](packages/aug_validateform)**: The core package containing validation annotations and the `ValidationWatcher` widget.
+- **[aug_validateform_generator](packages/aug_validateform_generator)**: The code generator package that builds the reactive validation mixins.
+- **[example](example)**: A complete demo application showcasing real-time validation in macOS and Web environments.
 
-TODO: List prerequisites and provide or point to information on how to
-start using the package.
+---
 
-## Usage
+## Quick Start
 
-TODO: Include short and useful examples for package users. Add longer examples
-to `/example` folder. 
+1. Add both `aug_validateform` (as a dependency) and `aug_validateform_generator` (as a dev_dependency) to your project.
+2. Annotate your models with `@Validatable()` and field rules like `@Email()` or `@MinLength()`.
+3. Run `dart run build_runner build` to generate your validation mixins.
 
-```dart
-const like = 'sample';
-```
+For detailed usage, visit the [Core Package README](packages/aug_validateform/README.md).
 
-## Additional information
+---
 
-TODO: Tell users more about the package: where to find more information, how to 
-contribute to the package, how to file issues, what response they can expect 
-from the package authors, and more.
+## Author & Contact
+
+This project is developed by **Muhammad Omar**.
+
+- **LinkedIn**: [muhammad-omar-0335](https://www.linkedin.com/in/muhammad-omar-0335/)
+- **GitHub**: [umarKhan1](https://github.com/umarKhan1)
+
+---
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
