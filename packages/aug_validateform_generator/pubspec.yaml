@@ -1,12 +1,14 @@
 name: aug_validateform_generator
-description: Code generator for aug_validateform using Dart Augmentations.
-version: 0.0.1
+description: High-performance code generator for aug_validateform. Automates reactive validation logic using Dart Augmentations for boilerplate-free Flutter forms.
+version: 0.0.1-dev.2
 environment:
   sdk: '>=3.6.0-0 <4.0.0'
 
+homepage: https://github.com/umarKhan1/aug_validateform
+repository: https://github.com/umarKhan1/aug_validateform/tree/main/packages/aug_validateform_generator
+
 dependencies:
-  aug_validateform:
-    path: ../aug_validateform
+  aug_validateform: ^0.0.1-dev.2
   analyzer: '>=6.4.0 <10.0.0'
   build: ^2.4.1
   source_gen: ^1.5.0

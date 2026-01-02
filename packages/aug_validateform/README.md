@@ -22,7 +22,7 @@ In modern Flutter development, complex forms often lead to a "Maintenance Nightm
 ---
 
 ### Reactive Validation in Action
-![Reactive Validation Demo](../examplegif.gif)
+![Reactive Validation Demo](examplegif.gif)
 
 ---
 
