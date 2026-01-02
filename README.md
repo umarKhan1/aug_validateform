@@ -28,7 +28,7 @@ When you run `build_runner`, the engine doesn't just create a separate file; it 
 
 ---
 ### Reactive Validation in Action
-![Reactive Validation Demo](packages/examplegif.gif)
+![Reactive Validation Demo](https://raw.githubusercontent.com/umarKhan1/aug_validateform/main/packages/aug_validateform/examplegif.gif)
 
 ---
 

@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.0.1-dev.3
+
+- Use absolute GitHub raw link for GIF visibility on pub.dev.
+
 ## 0.0.1-dev.2
 
 - Fix GIF visibility on pub.dev.
