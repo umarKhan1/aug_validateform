@@ -1,10 +1,13 @@
 # Changelog
 
-## 0.0.1-dev.3
+## 0.0.1-dev.4
 
+- Improve documentation by adding dartdoc comments to all annotations.
+- Fix mono-repo naming conflict in root pubspec.
+- Include package example by moving it into the package directory.
 - Use absolute GitHub raw link for GIF visibility on pub.dev.
 
-## 0.0.1-dev.2
+## 0.0.1-dev.3
 
 - Fix GIF visibility on pub.dev.
 

@@ -1,6 +1,6 @@
 name: aug_validateform
 description: A zero-boilerplate, type-safe validation engine for Flutter that weaves reactive logic directly into models using Dart Augmentations. Wasm-compatible and Impeller-ready.
-version: 0.0.1-dev.3
+version: 0.0.1-dev.4
 environment:
   sdk: '>=3.6.0-0 <4.0.0'
 

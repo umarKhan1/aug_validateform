@@ -10,13 +10,13 @@ dependencies:
   flutter:
     sdk: flutter
   aug_validateform:
-    path: ../packages/aug_validateform
+    path: ../
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
   aug_validateform_generator:
-    path: ../packages/aug_validateform_generator
+    path: ../../aug_validateform_generator
   build_runner: ^2.4.8
   analyzer: ^6.4.1
 

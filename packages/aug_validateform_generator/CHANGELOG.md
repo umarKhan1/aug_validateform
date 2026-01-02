@@ -1,10 +1,10 @@
 # Changelog
 
-## 0.0.1-dev.3
+## 0.0.1-dev.4
 
 - Synchronize version with core package.
 
-## 0.0.1-dev.2
+## 0.0.1-dev.3
 
 - Synchronize version with core package.
 
