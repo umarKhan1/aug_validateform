@@ -19,3 +19,6 @@ dev_dependencies:
     path: ../packages/aug_validateform_generator
   build_runner: ^2.4.8
   analyzer: ^6.4.1
+
+flutter:
+  uses-material-design: true

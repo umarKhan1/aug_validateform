@@ -14,7 +14,11 @@ class MyApp extends StatelessWidget {
       title: 'aug_validateform Demo',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.red),
+        colorScheme: ColorScheme.fromSeed(
+          seedColor: Colors.red,
+          surface: Colors.white,
+        ),
+        scaffoldBackgroundColor: Colors.white,
         useMaterial3: true,
       ),
       home: const RegistrationScreen(),

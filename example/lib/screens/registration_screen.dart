@@ -40,6 +40,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                   child: Card(
                     elevation: 10,
                     shadowColor: Colors.black12,
+                    color: Colors.white, // Explicitly white
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(30),
                     ),
@@ -152,7 +153,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                               placeholder: "••••••••••••",
                               onChanged: (v) => _form.password = v,
                               isPassword: true,
-                              suffix: const Icon(Icons.visibility_off_outlined,
+                              suffix: const Icon(Icons.lock,
                                   color: Colors.grey, size: 20),
                               errorText: error,
                             ),
@@ -167,7 +168,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                               label: "Phone Number",
                               placeholder: "1234 5678 9101",
                               onChanged: (v) => _form.phoneNumber = v,
-                              prefix: const Icon(Icons.phone_outlined,
+                              prefix: const Icon(Icons.phone,
                                   color: Colors.grey, size: 20),
                               errorText: error,
                             ),
