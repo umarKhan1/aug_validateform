@@ -1,9 +1,16 @@
+/// Core annotations for the aug_validateform package.
+///
+/// These annotations are used to mark fields for validation and are
+/// processed by the aug_validateform_generator.
+library aug_validateform_annotations;
+
 import 'package:meta/meta_meta.dart';
 
 /// Marks a class as validatable.
 /// The generator will create validation logic for this class.
 @Target({TargetKind.classType})
 class Validatable {
+  /// Marks a class as validatable.
   const Validatable();
 }
 

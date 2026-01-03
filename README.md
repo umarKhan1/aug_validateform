@@ -1,8 +1,5 @@
 # aug_validateform
 
-[![Pub Version](https://img.shields.io/pub/v/aug_validateform)](https://pub.dev/packages/aug_validateform)
-[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
-[![Build Status](https://img.shields.io/github/actions/workflow/status/umarKhan1/aug_validateform/ci.yml?branch=main)](https://github.com/umarKhan1/aug_validateform/actions)
 
 `aug_validateform` is a zero-boilerplate, type-safe validation engine that weaves logic directly into your models using the stable Augmentation pattern. Unlike traditional form builders, it preserves your pure data models while providing reactive `ValueNotifier` feedback with zero reflective overhead.
 

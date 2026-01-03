@@ -24,6 +24,8 @@ dev_dependencies:
 dependency_overrides:
   aug_validateform:
     path: ../
+  aug_validateform_annotations:
+    path: ../../aug_validateform_annotations
 
 flutter:
   uses-material-design: true

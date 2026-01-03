@@ -1,0 +1,22 @@
+name: generator_example
+description: Example of how to use aug_validateform_generator.
+publish_to: 'none'
+version: 1.0.0
+
+environment:
+  sdk: '>=3.6.0-0 <4.0.0'
+
+dependencies:
+  aug_validateform_annotations:
+    path: ../../aug_validateform_annotations
+
+dev_dependencies:
+  aug_validateform_generator:
+    path: ../
+  build_runner: ^2.4.8
+
+dependency_overrides:
+  aug_validateform_annotations:
+    path: ../../aug_validateform_annotations
+  aug_validateform_generator:
+    path: ../

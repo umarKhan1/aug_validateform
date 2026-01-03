@@ -1,11 +1,13 @@
 import 'package:analyzer/dart/element/element.dart';
-import 'package:aug_validateform/annotations.dart';
+import 'package:aug_validateform_annotations/aug_validateform_annotations.dart';
 import 'package:build/build.dart';
 import 'package:path/path.dart' as p;
 import 'package:source_gen/source_gen.dart';
 
+/// Main entry point for the validation logic generator.
 Builder augValidateFormBuilder(BuilderOptions options) => AugmentationBuilder();
 
+/// A [Builder] that generates `.validate.dart` files containing validation mixins.
 class AugmentationBuilder implements Builder {
   @override
   final buildExtensions = const {
@@ -26,8 +28,6 @@ class AugmentationBuilder implements Builder {
 
     final outputId = buildStep.inputId.changeExtension('.validate.dart');
 
-    p.basename(buildStep.inputId.path);
-
     final content = StringBuffer();
     content.writeln('part of \'${p.basename(buildStep.inputId.path)}\';');
     content.writeln();
@@ -39,8 +39,11 @@ class AugmentationBuilder implements Builder {
   }
 }
 
+/// [Generator] that finds classes annotated with [Validatable] and generates
+/// validation logic for them.
 class ValidatableGenerator extends Generator {
-  final TypeChecker validatableChecker = TypeChecker.fromRuntime(Validatable);
+  /// Checker for the [Validatable] annotation.
+  final TypeChecker validatableChecker = TypeChecker.typeNamed(Validatable);
 
   @override
   Future<String> generate(LibraryReader library, BuildStep buildStep) async {
@@ -194,7 +197,7 @@ class ValidatableGenerator extends Generator {
 
   ConstantReader? _getAnnotation(FieldElement field, Type annotationType) {
     final annot =
-        TypeChecker.fromRuntime(annotationType).firstAnnotationOfExact(field);
+        TypeChecker.typeNamed(annotationType).firstAnnotationOfExact(field);
     return annot != null ? ConstantReader(annot) : null;
   }
 }

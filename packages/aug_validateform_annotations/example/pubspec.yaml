@@ -1,0 +1,10 @@
+name: aug_validateform_annotations_example
+description: Example of using aug_validateform_annotations.
+publish_to: 'none'
+
+environment:
+  sdk: '>=3.6.0-0 <4.0.0'
+
+dependencies:
+  aug_validateform_annotations:
+    path: ../

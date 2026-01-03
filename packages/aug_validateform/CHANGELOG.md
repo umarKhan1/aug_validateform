@@ -1,5 +1,15 @@
 # Changelog
 
+## 0.0.1-dev.6
+
+- Fixed analysis error in the generator's example project by providing a mock `ValueNotifier` for pure Dart environments.
+
+## 0.0.1-dev.5
+
+- Internal refactoring: moved core annotations to `aug_validateform_annotations` for better code generation performance and pure Dart analysis.
+- Re-exports everything from `aug_validateform_annotations`.
+- Relocated example project for improved pub.dev analysis.
+
 ## 0.0.1-dev.4
 
 - Improve documentation by adding dartdoc comments to all annotations.
